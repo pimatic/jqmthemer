@@ -1,10 +1,10 @@
 module.exports = {
-
   themeCss: (theme, css) ->
-    for k, v of theme.variables
-      # /(\S+)\s*\/\*\{([a-z_-]+)\}\*\//
-      replacer = new RegExp("/\\S+(\\s*\\/\\*\\{#{k}\\}\\*\\/)/", "g")
-      css = css.replace(replacer, "v$1")
+    variables = theme.variables
+    css = css.replace(/(\S+)\s*\/\*\{([a-z_-]+)\}\*\//g, (match, value, varName) ->
+      newValue = theme.variables[varName]
+      value = newValue if newValue?
+      return "#{value} /*{#{varName}}*/"
+    )
     return css
-
 }
