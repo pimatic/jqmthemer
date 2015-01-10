@@ -1,7 +1,7 @@
 {
   "name": "jqmthemer",
   "version": "0.0.1",
-  "description": "easy theme creator for jqm",
+  "description": "Theme a jQuery Mobile theme css file, by replacing css values by its variable names.",
   "main": "index.js",
   "files": [
     "lib",
